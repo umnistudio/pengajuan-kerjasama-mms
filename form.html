@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Pengajuan Kerja Sama — Divisi Humas MMS</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#80196D;--pd:#5c1150;--pbg:#f8eef6;
+  --g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;
+  --g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g700:#374151;--g800:#1f2937;
+  --red:#dc2626;--rbg:#fee2e2;--green:#16a34a;--gbg:#dcfce7;
+  --r:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--pbg);color:var(--g800);min-height:100vh;padding:20px 14px 60px}
+.wrap{max-width:560px;margin:0 auto}
+.hero{text-align:center;margin-bottom:22px;padding-top:10px}
+.hero h1{font-family:'DM Serif Display',serif;font-size:24px;color:var(--primary);margin-bottom:6px;line-height:1.3}
+.hero p{font-size:13px;color:var(--g600);line-height:1.6}
+.card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:0 2px 10px rgba(128,25,109,.08);margin-bottom:16px}
+.section-title{font-size:13px;font-weight:700;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--g100);display:flex;align-items:center;gap:6px}
+.form-group{margin-bottom:14px}
+.form-row{display:flex;gap:10px;margin-bottom:0}
+.form-row .form-group{flex:1;margin-bottom:14px}
+.form-label{display:block;font-size:11.5px;font-weight:600;color:var(--g700);margin-bottom:5px}
+.form-label .req{color:var(--red)}
+.form-input,.form-textarea,.form-select{width:100%;border:1px solid var(--g300);border-radius:9px;padding:10px 12px;font-size:13.5px;font-family:inherit;color:var(--g800);background:#fff}
+.form-input:focus,.form-textarea:focus,.form-select:focus{outline:none;border-color:var(--primary)}
+.form-textarea{resize:vertical;min-height:70px}
+.hint{font-size:10.5px;color:var(--g400);margin-top:4px}
+.item-row{border:1px solid var(--g200);border-radius:10px;padding:12px;margin-bottom:10px;background:var(--g50)}
+.item-row-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.item-row-hdr span{font-size:11px;font-weight:700;color:var(--g600)}
+.btn-remove{background:none;border:none;color:var(--red);font-size:11px;cursor:pointer;font-weight:600}
+.btn-add{width:100%;background:var(--pbg);color:var(--primary);border:1px dashed var(--primary);border-radius:9px;padding:10px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit}
+.btn-submit{width:100%;background:var(--primary);color:#fff;border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:6px}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed}
+.btn-submit:hover:not(:disabled){background:var(--pd)}
+.err{font-size:11.5px;color:var(--red);margin-top:6px;display:none}
+.notice{background:#fff3f3;border:1px solid #ffd6d6;border-radius:9px;padding:10px 12px;font-size:11px;color:#c0392b;font-weight:600;margin-bottom:16px;display:flex;gap:8px;align-items:flex-start}
+.success-screen{display:none;text-align:center;padding:40px 10px}
+.success-screen .icon{width:60px;height:60px;border-radius:50%;background:var(--gbg);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--green);font-size:30px}
+.success-screen h2{font-family:'DM Serif Display',serif;font-size:20px;color:var(--g800);margin-bottom:8px}
+.success-screen p{font-size:13px;color:var(--g600);line-height:1.7}
+.footer-note{text-align:center;font-size:11px;color:var(--g400);margin-top:20px;line-height:1.6}
+.website-field{position:absolute;left:-9999px;opacity:0}
+.tnc-card{padding:0;overflow:hidden}
+.tnc-details summary{cursor:pointer;list-style:none;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:700;font-size:13px;color:var(--primary)}
+.tnc-details summary::-webkit-details-marker{display:none}
+.tnc-details summary::marker{content:''}
+.tnc-summary-label{display:flex;align-items:center;gap:8px}
+.tnc-chevron{transition:transform .2s ease;flex-shrink:0;color:var(--primary)}
+.tnc-details[open] .tnc-chevron{transform:rotate(180deg)}
+.tnc-body{padding:0 20px 18px;font-size:12px;color:var(--g700);line-height:1.85;border-top:1px solid var(--g100);margin-top:0;padding-top:14px}
+.tnc-body ol{padding-left:19px;margin-top:2px}
+.tnc-body li{margin-bottom:7px}
+.tnc-body .tnc-star{color:var(--primary);font-weight:700}
+.tnc-note{font-size:11px;color:var(--g500);font-style:italic;margin-top:10px}
+.tnc-signoff{margin-top:14px;font-size:12px;color:var(--g700);line-height:1.8}
+.tnc-signoff b{color:var(--primary)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero" id="heroSection">
+    <h1>Form Pengajuan Kerja Sama</h1>
+    <p>Silakan isi formulir berikut untuk mengajukan kerja sama Media Partner dengan Divisi Hubungan Masyarakat MMS.</p>
+  </div>
+
+  <div id="formScreen">
+    <div class="card tnc-card">
+      <details class="tnc-details">
+        <summary>
+          <span class="tnc-summary-label">Syarat &amp; Ketentuan Pengajuan Media Partner</span>
+          <svg class="tnc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="tnc-body">
+          <ol>
+            <li>Kegiatan wajib <b>FREE</b> (offline/online).</li>
+            <li>Tema kajian/webinar/daurah tidak melanggar syari'at<span class="tnc-star">*</span></li>
+            <li>Pemateri bermanhaj salaf<span class="tnc-star">*</span></li>
+            <li>Tidak menampilkan foto pemateri dalam flyer.</li>
+            <li>Posting 1 poster <b>maksimal 1x</b> ke seluruh media sosial MMS <i>(Instastory, Telegram channel, WhatsApp story, grup &amp; saluran)</i>.</li>
+            <li>Waktu posting mengikuti kami (diusahakan sebelum acara berlangsung). Diproses sesuai antrian lembaga yang masuk atau yang lebih awal mengirimkan poster.</li>
+            <li><b>Tidak menerima Collaborator feed</b>.</li>
+          </ol>
+          <p class="tnc-note"><span style="color:var(--primary);font-weight:700">*</span>Perlu persetujuan dari kami.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Data Lembaga / Pengaju</div>
+      <div class="form-group">
+        <label class="form-label">Nama Lembaga / Instansi <span class="req">*</span></label>
+        <input type="text" class="form-input" id="f-lembaga" placeholder="Contoh: Madrasah Mar'ah Shalihah">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Instagram <span class="req">*</span></label>
+        <input type="text" class="form-input" id="f-ig" placeholder="@username" onblur="this.value=normalizeIG(this.value)">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nomor WhatsApp Aktif <span class="req">*</span></label>
+        <div class="hint" style="margin-top:0;margin-bottom:5px">Pastikan nomor WhatsApp yang diisi aktif, karena status pengajuan akan dikirim melalui WhatsApp.</div>
+        <input type="tel" class="form-input" id="f-wa" placeholder="081234567890">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Kerja Sama yang Diajukan</div>
+      <div id="itemsWrap"></div>
+      <button type="button" class="btn-add" id="addItemBtn">+ Tambah Judul Kerja Sama</button>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Catatan Tambahan</div>
+      <div class="form-group" style="margin-bottom:0">
+        <textarea class="form-textarea" id="f-catatan" placeholder="Tuliskan keterangan tambahan, tujuan kerja sama, atau hal lain yang perlu kami ketahui (opsional)"></textarea>
+      </div>
+    </div>
+
+    <input type="text" class="website-field" id="f-website" tabindex="-1" autocomplete="off">
+
+    <div class="err" id="formErr"></div>
+    <button type="button" class="btn-submit" id="submitBtn">Kirim Pengajuan</button>
+    <div class="footer-note">Setelah dikirim, tim Humas MMS akan meninjau pengajuan Anda dan mengirimkan konfirmasi melalui WhatsApp.</div>
+  </div>
+
+  <div class="success-screen" id="successScreen">
+    <div class="icon">✓</div>
+    <h2>Pengajuan Terkirim</h2>
+    <p>Jazaakumullaahu khayraan, pengajuan kerja sama Anda telah kami terima dan akan segera ditinjau oleh tim Humas MMS.<br><br>Status pengajuan akan dikirimkan melalui nomor WhatsApp yang Anda daftarkan.</p>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script>
+firebase.initializeApp({
+  apiKey:"AIzaSyBUzXiLImy01GiucBuzIe4ePfJna18s9vI",
+  authDomain:"humas-mms-tracker.firebaseapp.com",
+  projectId:"humas-mms-tracker",
+  storageBucket:"humas-mms-tracker.firebasestorage.app",
+  messagingSenderId:"469423539700",
+  appId:"1:469423539700:web:4148ad38b8d6f3e33065a1"
+});
+const db = firebase.firestore();
+
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2);
+
+function itemRowHtml(n, id){
+  return `<div class="item-row" data-item-id="${id}">
+    <div class="item-row-hdr"><span>Judul #${n}</span>${n>1?'<button type="button" class="btn-remove" onclick="this.closest(\'.item-row\').remove()">Hapus</button>':''}</div>
+    <div class="form-group">
+      <label class="form-label">Judul Kerja Sama <span class="req">*</span></label>
+      <input type="text" class="form-input item-judul" placeholder="Contoh: The Blooming Journey">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Nama Pemateri <span class="req">*</span></label>
+      <input type="text" class="form-input item-pemateri">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Tanggal Pengajuan <span class="req">*</span></label>
+      <input type="date" class="form-input item-tglajuan">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Tanggal Diselenggarakan <span class="req">*</span></label>
+        <input type="date" class="form-input item-tgl">
+      </div>
+      <div class="form-group" style="max-width:120px">
+        <label class="form-label">Jam <span class="req">*</span></label>
+        <input type="time" class="form-input item-jam">
+      </div>
+    </div>
+    <div class="form-group" style="margin-bottom:0">
+      <label class="form-label">Registrasi</label>
+      <select class="form-select item-registrasi">
+        <option value="Gratis">Gratis</option>
+        <option value="Berbayar">Berbayar</option>
+      </select>
+    </div>
+  </div>`;
+}
+
+let itemCount = 0;
+const itemsWrap = document.getElementById('itemsWrap');
+function todayStr(){
+  const d = new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function addItem(){
+  itemCount++;
+  itemsWrap.insertAdjacentHTML('beforeend', itemRowHtml(itemCount, uid()));
+  const rows = itemsWrap.querySelectorAll('.item-row');
+  const lastRow = rows[rows.length-1];
+  const tglAjuanInput = lastRow.querySelector('.item-tglajuan');
+  if(tglAjuanInput) tglAjuanInput.value = todayStr();
+}
+document.getElementById('addItemBtn').addEventListener('click', addItem);
+addItem();
+
+function readItems(){
+  return [...document.querySelectorAll('.item-row')].map(row => ({
+    id: row.getAttribute('data-item-id'),
+    judul: row.querySelector('.item-judul').value.trim(),
+    pemateri: row.querySelector('.item-pemateri').value.trim(),
+    tglAjuan: row.querySelector('.item-tglajuan').value,
+    tgl2: row.querySelector('.item-tgl').value,
+    jam: row.querySelector('.item-jam').value,
+    registrasi: row.querySelector('.item-registrasi').value,
+    status: 'belum'
+  })).filter(it => it.judul);
+}
+
+function normalizeIG(raw){
+  let s=(raw||'').trim().toLowerCase().replace(/^@+/,'');
+  if(!s)return '';
+  return '@'+s;
+}
+
+function validPhone(s){
+  const digits = s.replace(/\D/g,'');
+  return digits.length >= 9 && digits.length <= 15;
+}
+
+const submitBtn = document.getElementById('submitBtn');
+const formErr = document.getElementById('formErr');
+
+submitBtn.addEventListener('click', async () => {
+  formErr.style.display = 'none';
+
+  const lembaga = document.getElementById('f-lembaga').value.trim();
+  const ig = normalizeIG(document.getElementById('f-ig').value);
+  document.getElementById('f-ig').value = ig;
+  const wa = document.getElementById('f-wa').value.trim();
+  const catatan = document.getElementById('f-catatan').value.trim();
+  const honeypot = document.getElementById('f-website').value.trim();
+  const items = readItems();
+
+  if(!lembaga || !ig || !wa || !items.length){
+    formErr.textContent = 'Mohon lengkapi Nama Lembaga, Instagram, Nomor WhatsApp, dan minimal 1 judul kerja sama.';
+    formErr.style.display = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
+    return;
+  }
+  const incomplete = items.some(it => !it.pemateri || !it.tglAjuan || !it.tgl2 || !it.jam);
+  if(incomplete){
+    formErr.textContent = 'Mohon lengkapi semua kolom pada setiap Kerja Sama yang Diajukan (Nama Pemateri, Tanggal Pengajuan, Tanggal Diselenggarakan, dan Jam).';
+    formErr.style.display = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
+    return;
+  }
+  if(!validPhone(wa)){
+    formErr.textContent = 'Nomor WhatsApp tidak valid. Mohon isi dengan format yang benar (contoh: 08123456789).';
+    formErr.style.display = 'block';
+    return;
+  }
+
+  // Honeypot: silently "succeed" without writing anything (anti-spam)
+  if(honeypot){
+    showSuccess();
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Mengirim...';
+
+  const submission = {
+    lembaga, ig, kontak: wa, wa, catatan,
+    items,
+    judul: items.map((it,idx)=>(items.length>1?(idx+1)+'. ':'')+it.judul).join(' '),
+    pemateri: items.map((it,idx)=>(items.length>1?(idx+1)+'. ':'')+it.pemateri).join(' '),
+    tgl2: items[0] ? items[0].tgl2 : '',
+    status: 'pending',
+    createdAt: Date.now()
+  };
+
+  try{
+    await db.collection('public_submissions').add(submission);
+    notifyAdmin(submission);
+    showSuccess();
+  }catch(e){
+    console.error(e);
+    formErr.textContent = 'Terjadi kesalahan saat mengirim pengajuan. Silakan coba lagi.';
+    formErr.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Kirim Pengajuan';
+  }
+});
+
+function notifyAdmin(submission){
+  // Kirim notifikasi WA ke admin lewat Cloudflare Worker (token Fonnte aman, tidak terekspos di halaman ini)
+  fetch('https://notif-pengajuankerjasama-mms.ibnatumuhammad03.workers.dev', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ lembaga: submission.lembaga, judul: submission.judul })
+  }).catch(e => console.warn('Notifikasi admin gagal terkirim (pengajuan tetap tersimpan):', e));
+}
+
+function showSuccess(){
+  document.getElementById('heroSection').style.display = 'none';
+  document.getElementById('formScreen').style.display = 'none';
+  document.getElementById('successScreen').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
+</body>
+</html>
